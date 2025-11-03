@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import StudentLogin from './components/StudentLogin';
 import StudentRegistration from './components/StudentRegistration';
-import StudentDashboard from './components/StudentDashboard';
+import StudentDashboards from './components/StudentDashboard';
 import StudentStudyTimer from './components/StudentStudyTimer';
 import './styles/StudentDashboard.css';
 import './styles/StudentLogin.css';
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<StudentLogin />} />
         <Route path="/register" element={<StudentRegistration />} />
-        <Route path="/dashboard" element={<StudentDashboard />} />
+        <Route path="/student-dashboard" element={<StudentDashboards />} />
         <Route path="/study-timer" element={<StudentStudyTimer />} />
       </Routes>
     </BrowserRouter>

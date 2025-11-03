@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-
+import Sidebar from './shared/sidebar.jsx';
 const StudentStudyTimer = () => {
   // Timer State
   const [timerInterval, setTimerInterval] = useState(null);
@@ -274,124 +274,7 @@ const StudentStudyTimer = () => {
 
   return (
     <div>
-      {/* Top Navigation */}
-      <nav className="topnav">
-        <div className="nav-left">
-          <div className="logo-nav">
-            <img src="../imgs/SpireWorksLogo.png" alt="SpireWorks Logo" />
-            <h1>SpireWorks</h1>
-          </div>
-          <div className="search-bar">
-            <svg className="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M13.5 13.5L17 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-            <input type="text" placeholder="Search..." />
-          </div>
-        </div>
-        <div className="nav-right">
-          <div className="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 5a5 5 0 0 1 5 5v2l1.5 3H3.5L5 12v-2a5 5 0 0 1 5-5z" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M8 17a2 2 0 1 0 4 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-            <span className="notification-badge">3</span>
-          </div>
-          <div className="user-menu" onClick={() => setUserDropdownOpen(!userDropdownOpen)}>
-            <div className="user-avatar">AQ</div>
-            <div className="user-info">
-              <div className="user-name">Ash Quicho</div>
-              <div className="user-role">Student</div>
-            </div>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-          </div>
-          <div className={`user-dropdown ${userDropdownOpen ? 'active' : ''}`}>
-            <a href="#" className="dropdown-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-              <span>View Profile</span>
-            </a>
-            <a href="#" className="dropdown-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M12 1v6m0 6v6m5.66-15.66l-4.24 4.24m0 6.84l-4.24 4.24M23 12h-6m-6 0H1m18.36-5.66l-4.24 4.24m0 6.84l-4.24 4.24"></path>
-              </svg>
-              <span>Settings</span>
-            </a>
-            <a href="#" className="dropdown-item logout">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                <polyline points="16 17 21 12 16 7"></polyline>
-                <line x1="21" y1="12" x2="9" y2="12"></line>
-              </svg>
-              <span>Logout</span>
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <a href="StudentDashboard.html" className="menu-item">
-          <span className="menu-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M3 3V17H17" />
-              <path d="M5 13L9 9L12 12L17 7" />
-            </svg>
-          </span>
-          <span className="menu-text">Dashboard</span>
-        </a>
-        <a href="StudyTimer.html" className="menu-item active">
-          <span className="menu-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <circle cx="10" cy="10" r="7" />
-              <path d="M10 6V10L13 11" />
-            </svg>
-          </span>
-          <span className="menu-text">Study Timer</span>
-        </a>
-        <a href="#" className="menu-item">
-          <span className="menu-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M17 18V16C17 14.8954 16.1046 14 15 14H9C7.89543 14 7 14.8954 7 16V18" />
-              <circle cx="12" cy="7" r="3" />
-              <path d="M3 18V16C3 14.8954 3.89543 14 5 14H5.5" />
-              <circle cx="5" cy="7" r="3" />
-            </svg>
-          </span>
-          <span className="menu-text">Group Study</span>
-        </a>
-        <a href="#" className="menu-item">
-          <span className="menu-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M10 18L5 15L3 7L10 2L17 7L15 15L10 18Z" />
-              <path d="M8 10L10 12L13 9" />
-            </svg>
-          </span>
-          <span className="menu-text">Achievements</span>
-        </a>
-        <a href="#" className="menu-item">
-          <span className="menu-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M14 2H6C4.89543 2 4 2.89543 4 4V16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V4C16 2.89543 15.1046 2 14 2Z" />
-              <path d="M9 6H11M9 9H11M9 12H11" />
-            </svg>
-          </span>
-          <span className="menu-text">My Files</span>
-        </a>
-        <a href="#" className="menu-item">
-          <span className="menu-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M10 13V17M7 10V17M13 7V17M3 17H17" />
-            </svg>
-          </span>
-          <span className="menu-text">Productivity Tracker</span>
-        </a>
-      </aside>
+     <Sidebar/>
 
       {/* Main Content */}
       <main className="main-content">
